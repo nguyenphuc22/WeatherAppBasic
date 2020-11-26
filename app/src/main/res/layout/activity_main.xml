@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#E6E6E6"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="#03A9F4"
+        android:padding="16dp"
+        >
+
+        <TextView
+            android:id="@+id/txtCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City"
+            android:textSize="32dp"
+            android:textColor="#ffffff"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtCity"
+            android:text="Time"
+            android:textColor="#ffffff"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif"
+            />
+
+        <ImageView
+            android:id="@+id/imgIcon"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_below="@id/txtTime"
+            android:src="@drawable/phc"
+            />
+
+        <TextView
+            android:id="@+id/txtValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3°"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/imgIcon"
+            android:textSize="70dp"
+            android:textColor="#ffffff"
+            android:fontFamily="sans-serif-condensed-light"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlSub"
+        android:layout_below="@id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:padding="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/imgFeelLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/temp"
+            />
+
+        <TextView
+            android:id="@+id/txtTitleFeelLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgFeelLike"
+            android:layout_marginLeft="10dp"
+            android:text="Feel Like"
+            android:textSize="16dp"
+            />
+
+        <TextView
+            android:id="@+id/txtValueFeelLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgFeelLike"
+            android:layout_below="@id/txtTitleFeelLike"
+            android:layout_marginLeft="10dp"
+            android:text="7°"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/imgHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/humidity"
+            android:layout_below="@id/imgFeelLike"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:id="@+id/txtTitleHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgHumidity"
+            android:layout_alignTop="@id/imgHumidity"
+            android:layout_marginLeft="10dp"
+            android:text="Humidity"
+            android:textSize="16dp"
+            />
+
+        <TextView
+            android:id="@+id/txtValueHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgHumidity"
+            android:layout_below="@id/txtTitleHumidity"
+            android:layout_marginLeft="10dp"
+            android:text="7°"
+            android:textSize="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/imgVision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/vision"
+            android:layout_below="@id/imgHumidity"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:id="@+id/txtTitleVision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgVision"
+            android:layout_alignTop="@id/imgVision"
+            android:layout_marginLeft="10dp"
+            android:text="Vision"
+            android:textSize="16dp"
+            />
+
+        <TextView
+            android:id="@+id/txtValueVision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgVision"
+            android:layout_below="@id/txtTitleVision"
+            android:layout_marginLeft="10dp"
+            android:text="7°"
+            android:textSize="20dp"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
