@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -34,15 +39,20 @@ public class MainActivity extends AppCompatActivity {
 
     String url1 = "https://samples.openweathermap.org/data/2.5/weather?q=London&appid=439d4b804bc8187953eb36d2a8c26a02";
 
-    String url = "https://api.openweathermap.org/data/2.5/weather?q=" + City +"&units=metric&appid=" + Key;
+
 
     TextView txtCity,txtTime,txtValue,txtValueFeelLike,txtValueHumidity,txtValueVision;
 
     String nameIcon = "10d";
 
+    EditText editText;
 
+    Button btnLoading;
 
     ImageView imgIcon;
+
+    RelativeLayout relativeLayoutMain;
+    RelativeLayout relativeLayout;
 
     public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
 
@@ -121,24 +131,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void loading(View view) {
 
-        txtCity = findViewById(R.id.txtCity);
+        editText.setVisibility(View.INVISIBLE);
+        btnLoading.setVisibility(View.INVISIBLE);
+        relativeLayout.setVisibility(View.VISIBLE);
+        relativeLayoutMain.setBackgroundColor(Color.parseColor("#E6E6E6"));
 
-        txtTime = findViewById(R.id.txtTime);
+        City = editText.getText().toString();
 
-        txtValue = findViewById(R.id.txtValue);
-
-        txtValueFeelLike = findViewById(R.id.txtTitleFeelLike);
-
-        txtValueHumidity = findViewById(R.id.txtValueHumidity);
-
-        txtValueVision = findViewById(R.id.txtValueVision);
-
-        imgIcon = findViewById(R.id.imgIcon);
+        String url = "https://api.openweathermap.org/data/2.5/weather?q=" + City +"&units=metric&appid=" + Key;
 
         DownloadTask downloadTask = new DownloadTask();
 
@@ -197,5 +199,33 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        editText = findViewById(R.id.edt_input);
+
+        txtCity = findViewById(R.id.txtCity);
+
+        txtTime = findViewById(R.id.txtTime);
+
+        txtValue = findViewById(R.id.txtValue);
+
+        txtValueFeelLike = findViewById(R.id.txtTitleFeelLike);
+
+        txtValueHumidity = findViewById(R.id.txtValueHumidity);
+
+        txtValueVision = findViewById(R.id.txtValueVision);
+
+        imgIcon = findViewById(R.id.imgIcon);
+
+        btnLoading = findViewById(R.id.btnLoading);
+
+        relativeLayout = findViewById(R.id.rlWeather);
+
+        relativeLayoutMain = findViewById(R.id.rlMain_Ac);
     }
 }
